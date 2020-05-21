@@ -20,13 +20,17 @@ def main():
             If true, screen will be shown as raw canny image.
             If false, screen will just overlay lanes on original screen.
         - detected_lane_color
-            Color of overlay lane color. raw canny image defaults to white
+            Color of overlay lane color. raw canny image defaults to white.
             0 - white, 1 - blue, 2 - red, 3 - green
+        - debug_mode
+            If true, will print any debug messages.
+            If false, will keep console clean.
         '''
         canny_screen = process_screen_canny_edge(screen,
                                                  print_slope=False,
                                                  show_raw_image=False,
-                                                 detected_lane_color=3)
+                                                 detected_lane_color=3,
+                                                 debug_mode=True)
 
         cv2.imshow('BeamNG_Drive_Window Lane Detection', canny_screen)
         if cv2.waitKey(25) & 0xFF == ord('q'):
