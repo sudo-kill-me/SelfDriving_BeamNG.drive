@@ -25,6 +25,11 @@ def process_screen_canny_edge(original_screen, print_slope, show_raw_image, dete
                                           threshold=300,
                                           minLineLength=220,
                                           maxLineGap=2)
+    # TODO - Add grouping of similar lines
+    # TODO - Define left / right sides of screen
+    # TODO - Add detection of dotted lines
+    # TODO - Define actual lanes
+    # TODO - Curve detected lines with lines on road
 
     if show_raw_image is True:
         draw_lines(processed_image, solid_outside_lines,

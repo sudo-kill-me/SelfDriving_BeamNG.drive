@@ -1,6 +1,9 @@
 import ctypes
 import time
 
+# DirectX scan codes http://www.gamespp.com/directx/directInputKeyboardScanCodes.html
+# TODO - Potentially add extra keys to be pressed
+
 SendInput = ctypes.windll.user32.SendInput
 
 UP = 0xC8
@@ -46,8 +49,6 @@ class Input(ctypes.Structure):
                 ("ii", Input_I)]
 
 
-# Actuals Functions
-
 def press_key(hex_key_code):
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
@@ -62,13 +63,3 @@ def release_key(hex_key_code):
     ii_.ki = KeyBdInput(0, hex_key_code, 0x0008 | 0x0002, 0, ctypes.pointer(extra))
     x = Input( ctypes.c_ulong(1), ii_ )
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
-
-# directx scan codes http://www.gamespp.com/directx/directInputKeyboardScanCodes.html
-
-
-if __name__ == '__main__':
-    while True:
-        press_key(0x11)
-        time.sleep(1)
-        release_key(0x11)
-        time.sleep(1)

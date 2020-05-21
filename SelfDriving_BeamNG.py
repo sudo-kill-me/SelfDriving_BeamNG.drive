@@ -31,6 +31,7 @@ def main():
                                                  show_raw_image=False,
                                                  detected_lane_color=3,
                                                  debug_mode=True)
+        # TODO - Add logic to self drive by staying within lane
 
         cv2.imshow('BeamNG_Drive_Window Lane Detection', canny_screen)
         if cv2.waitKey(25) & 0xFF == ord('q'):
