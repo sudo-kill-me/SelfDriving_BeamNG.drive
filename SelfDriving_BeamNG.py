@@ -27,9 +27,10 @@ def main():
             If false, will keep console clean.
         '''
         canny_screen = process_screen_canny_edge(screen,
-                                                 print_slope=False,
-                                                 show_raw_image=False,
-                                                 detected_lane_color=3,
+                                                 print_slope=True,
+                                                 print_ignored_slope=False,
+                                                 show_raw_image=True,
+                                                 detected_lane_color=2,
                                                  debug_mode=True)
         # TODO - Add logic to self drive by staying within lane
 
